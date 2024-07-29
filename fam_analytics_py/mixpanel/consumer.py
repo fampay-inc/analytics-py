@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from fam_analytics_py.base import BaseConsumer
 from fam_analytics_py.request import post
 
@@ -10,8 +10,8 @@ class MixpanelConsumer(BaseConsumer):
 
     @dataclass
     class MessageBatches:
-        events: list[dict] = []
-        profiles: list[dict] = []
+        events: "list[dict]" = field(default_factory=lambda: [])
+        profiles: "list[dict]" = field(default_factory=lambda: [])
 
     def __init__(
         self,
