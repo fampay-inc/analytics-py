@@ -37,7 +37,7 @@ class MixpanelConsumer(BaseConsumer):
     def _segregate_batch(self, batch: "list[dict]") -> MessageBatches:
         batches = self.MessageBatches()
         for msg in batch:
-            msg_type = msg.pop("__type__")
+            msg_type = msg.pop("type")
             if msg_type == MessageType.event:
                 batches.events.append(msg)
             elif msg_type == MessageType.profile:

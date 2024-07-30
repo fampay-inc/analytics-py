@@ -94,7 +94,7 @@ class MixpanelClient(BaseClient):
         self._update_timestamp_if_needed(properties=properties)
 
         msg = {
-            "__type__": MessageType.event,
+            "type": MessageType.event,
             "event": event,
             "properties": properties,
         }
@@ -115,7 +115,7 @@ class MixpanelClient(BaseClient):
         require("traits", traits, dict)
 
         msg = {
-            "__type__": MessageType.profile,
+            "type": MessageType.profile,
             "$token": self.config.project_token,
             "$distinct_id": str(user_id or anonymous_id),
             "$set": traits,

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "fam-analytics-py"
-version = "0.1.0"
+version = "0.1.1a1"
 description = "Analytics module for Python projects"
 authors = ["galaxyzpjfp <pranav.jain@fampay.in>"]
 readme = "README.md"
@@ -10,6 +10,7 @@ python = "^3.8.1"
 requests = "^2.28.1"
 python-dateutil = "^2.8.2"
 six = "^1.16.0"
+mixpanel = "^4.10.1"
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "^7.1.0"
