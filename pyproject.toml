@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "fam-analytics-py"
-version = "0.1.1a1"
+version = "0.1.1a2"
 description = "Analytics module for Python projects"
 authors = ["galaxyzpjfp <pranav.jain@fampay.in>"]
 readme = "README.md"

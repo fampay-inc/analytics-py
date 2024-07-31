@@ -74,15 +74,14 @@ class MixpanelClient(BaseClient):
         anonymous_id=None,
         integrations=None,
     ):
+        require("user_id / anonymous_id", user_id or anonymous_id, ID_TYPES)
         require("event", event, str)
 
         properties = properties or {}
         require("properties", properties, dict)
-        if anonymous_id:
-            properties["anonymous_id"] = anonymous_id
 
         insert_id = str(uuid.uuid4())
-        distinct_id = user_id or ""
+        distinct_id = str(user_id or anonymous_id)
 
         properties.update(
             {
