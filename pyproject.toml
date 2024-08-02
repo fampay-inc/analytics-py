@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "fam-analytics-py"
+version = "1.0.0"
+description = "Analytics module for Python projects"
+authors = ["galaxyzpjfp <pranav.jain@fampay.in>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8.1"
+requests = "^2.28.1"
+python-dateutil = "^2.8.2"
+six = "^1.16.0"
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^7.1.0"
+pytest = "^8.3.2"
+black = "^24.4.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
