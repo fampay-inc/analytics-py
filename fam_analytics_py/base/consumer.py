@@ -26,7 +26,7 @@ class BaseConsumer(Thread):
         # pause immediately after construction, we might set running to True in
         # run() *after* we set it to False in pause... and keep running forever.
         self.running = True
-        self.retries = 3
+        self.retries = 10
 
     def run(self):
         """Runs the consumer."""
@@ -48,7 +48,6 @@ class BaseConsumer(Thread):
             self.request(batch)
             success = True
         except Exception as e:
-            LOGGER.error(f"error uploading: {e}")
             success = False
             if self.on_error:
                 self.on_error(e, batch)
