@@ -1,3 +1,4 @@
+import time
 from dataclasses import dataclass, field
 from fam_analytics_py.base import BaseConsumer
 from fam_analytics_py.request import post
@@ -69,7 +70,7 @@ class MixpanelConsumer(BaseConsumer):
             if not payload:
                 continue
 
-            attempt = 0
+            attempt = 1
             while True:
                 try:
                     post(
@@ -80,3 +81,4 @@ class MixpanelConsumer(BaseConsumer):
                     attempt += 1
                     if attempt > self.retries:
                         raise
+                    time.sleep(0.1 * attempt)
