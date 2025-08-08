@@ -22,6 +22,17 @@ def post(url, headers, auth, _payload=None, **kwargs):
     headers["content-type"] = "application/json"
     LOGGER.debug("making request: %s", data)
     res = _session.post(url, data=data, auth=auth, headers=headers, timeout=15)
+    LOGGER.info(
+        "msg=%s url=%s response=%s status_code=%s headers=%s payload=%s auth_username=%s auth_password=%s",
+        "Response from analytics API received",
+        url,
+        res.text,
+        res.status_code,
+        json.dumps(headers),
+        data,
+        auth.username,
+        auth.password,
+    )
 
     if res.status_code == 200:
         LOGGER.debug("data uploaded successfully")
